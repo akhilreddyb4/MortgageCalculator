@@ -5,12 +5,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.GoogleHomePage;
+
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     public WebDriver driver;
 
-    protected GoogleHomePage googleHomePage;
+    private GoogleHomePage googleHomePage;
 
     @BeforeClass
     public void setUp() {

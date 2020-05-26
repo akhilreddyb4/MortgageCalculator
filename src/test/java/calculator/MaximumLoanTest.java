@@ -4,7 +4,9 @@ import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
+
 import java.text.DecimalFormat;
+
 import pages.MaximumLoanPage;
 import pages.MonthlyCostPage;
 
@@ -41,11 +43,11 @@ public class MaximumLoanTest extends BaseTest {
         String actualMortgageValue = maximumLoanPage.getTotalMortgageCost();
         DecimalFormat formatter = new DecimalFormat("#,###");
         String expectedMortgageValue = "$" + formatter.format(getExpectedTotalMortgageCost(monthlyPayment, mortgagePeriodInYears));
-        Assert.assertEquals(actualMortgageValue,expectedMortgageValue, "Mortgage values are not equal");
+        Assert.assertEquals(actualMortgageValue, expectedMortgageValue, "Mortgage values are not equal");
 
         String actualBorrowAmountValue = maximumLoanPage.getBorrowAmount();
         String expectedBorrowAmountValue = "$" + formatter.format(getExpectedBorrowAmount(monthlyPayment, annualInterestRatePercentage, mortgagePeriodInYears));
-        Assert.assertEquals(actualBorrowAmountValue,expectedBorrowAmountValue,"Borrow amount values are not equal");
+        Assert.assertEquals(actualBorrowAmountValue, expectedBorrowAmountValue, "Borrow amount values are not equal");
     }
 
     @Test
@@ -54,7 +56,7 @@ public class MaximumLoanTest extends BaseTest {
         Assert.assertTrue(monthlyCostPage.isMortgageCalculatorPresent(), "Mortgage calculator not displayed");
         maximumLoanPage = new MaximumLoanPage(driver);
         maximumLoanPage.clickOnMaximumLoanTab();
-        Assert.assertTrue(maximumLoanPage.isMaximumLoanTabSelected(),"Maximum loan tab is not selected");
+        Assert.assertTrue(maximumLoanPage.isMaximumLoanTabSelected(), "Maximum loan tab is not selected");
         monthlyCostPage = new MonthlyCostPage(driver);
         Assert.assertFalse(monthlyCostPage.isMonthlyCostTabSelected(), "Monthly cost tab is selected");
     }
