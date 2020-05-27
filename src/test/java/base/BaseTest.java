@@ -18,7 +18,7 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://google.com/");
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         googleHomePage = new GoogleHomePage(driver);
         googleHomePage.setSearchBar();
